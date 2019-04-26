@@ -1,0 +1,1764 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="分布式系统HDFS部署报告.fld/filelist.xml">
+<link rel=Edit-Time-Data href="分布式系统HDFS部署报告.fld/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Li Yunfan</o:Author>
+  <o:LastAuthor>Li Yunfan</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2019-04-20T08:20:00Z</o:Created>
+  <o:LastSaved>2019-04-20T08:20:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>471</o:Words>
+  <o:Characters>2686</o:Characters>
+  <o:Lines>22</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3151</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="分布式系统HDFS部署报告.fld/themedata.thmx">
+<link rel=colorSchemeMapping href="分布式系统HDFS部署报告.fld/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="375">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hashtag"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Unresolved Mention"/>
+ </w:LatentStyles>
+</xml><![endif]--><![if !supportAnnotations]>
+<style id="dynCom" type="text/css"><!-- --></style>
+<script language="JavaScript"><!--
+function msoCommentShow(anchor_id, com_id)
+{
+	if(msoBrowserCheck()) 
+		{
+		c = document.all(com_id);
+		a = document.all(anchor_id);
+		if (null != c && null == c.length && null != a && null == a.length)
+			{
+			var cw = c.offsetWidth;
+			var ch = c.offsetHeight;
+			var aw = a.offsetWidth;
+			var ah = a.offsetHeight;
+			var x  = a.offsetLeft;
+			var y  = a.offsetTop;
+			var el = a;
+			while (el.tagName != "BODY") 
+				{
+				el = el.offsetParent;
+				x = x + el.offsetLeft;
+				y = y + el.offsetTop;
+				}
+			var bw = document.body.clientWidth;
+			var bh = document.body.clientHeight;
+			var bsl = document.body.scrollLeft;
+			var bst = document.body.scrollTop;
+			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+				{ c.style.left = x + aw - ah / 2 - cw; }
+			else 
+				{ c.style.left = x + ah / 2; }
+			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+				{ c.style.top = y + ah / 2 - ch; }
+			else 
+				{ c.style.top = y + ah / 2; }
+			c.style.visibility = "visible";
+}	}	}
+function msoCommentHide(com_id) 
+{
+	if(msoBrowserCheck())
+		{
+		c = document.all(com_id);
+		if (null != c && null == c.length)
+		{
+		c.style.visibility = "hidden";
+		c.style.left = -1000;
+		c.style.top = -1000;
+		} } 
+}
+function msoBrowserCheck()
+{
+	ms = navigator.appVersion.indexOf("MSIE");
+	vers = navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 = (ms > 0) && (parseInt(vers) >= 4);
+	return ie4;
+}
+if (msoBrowserCheck())
+{
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
+	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".msocomtxt","z-index: 100");
+}
+// --></script>
+<![endif]>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+@font-face
+	{font-family:DengXian;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:等线;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610612033 953122042 22 0 262159 0;}
+@font-face
+	{font-family:"Songti SC";
+	panose-1:2 1 6 0 4 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:647 135200768 16 0 262303 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-520092929 1073806591 9 0 415 0;}
+@font-face
+	{font-family:"\@等线";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:"\@DengXian";
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610612033 953122042 22 0 262159 0;}
+@font-face
+	{font-family:"\@Songti SC";
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:647 135200768 16 0 262303 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:DengXian;
+	mso-ascii-font-family:DengXian;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"标题 1 字符";
+	mso-style-next:正文;
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:22.0pt;
+	font-family:DengXian;
+	mso-ascii-font-family:DengXian;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-font-kerning:22.0pt;}
+h2
+	{mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"标题 2 字符";
+	mso-style-next:正文;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:173%;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:16.0pt;
+	font-family:"等线 Light";
+	mso-ascii-font-family:"等线 Light";
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"等线 Light";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:"等线 Light";
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	mso-font-kerning:1.0pt;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"批注文字 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:DengXian;
+	mso-ascii-font-family:DengXian;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-ansi-font-size:10.5pt;
+	mso-bidi-font-size:10.5pt;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:批注文字;
+	mso-style-link:"批注主题 字符";
+	mso-style-next:批注文字;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:DengXian;
+	mso-ascii-font-family:DengXian;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"批注框文本 字符";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:9.0pt;
+	font-family:宋体;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:21.0pt;
+	mso-char-indent-count:2.0;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:DengXian;
+	mso-ascii-font-family:DengXian;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;}
+span.MsoBookTitle
+	{mso-style-priority:33;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	font-style:italic;}
+span.1
+	{mso-style-name:"标题 1 字符";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"标题 1";
+	mso-ansi-font-size:22.0pt;
+	mso-bidi-font-size:22.0pt;
+	mso-font-kerning:22.0pt;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"标题 2 字符";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"标题 2";
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"等线 Light";
+	mso-ascii-font-family:"等线 Light";
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"等线 Light";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:"等线 Light";
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	font-weight:bold;}
+span.kwd
+	{mso-style-name:kwd;
+	mso-style-unhide:no;}
+span.pln
+	{mso-style-name:pln;
+	mso-style-unhide:no;}
+span.a
+	{mso-style-name:"批注文字 字符";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:批注文字;}
+span.a0
+	{mso-style-name:"批注主题 字符";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-parent:"批注文字 字符";
+	mso-style-link:批注主题;
+	font-weight:bold;}
+span.a1
+	{mso-style-name:"批注框文本 字符";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:批注框文本;
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	font-family:宋体;
+	mso-ascii-font-family:宋体;
+	mso-fareast-font-family:宋体;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-family:DengXian;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+ /* Page Definitions */
+ @page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1700398215;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1465711342 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:21.0pt;
+	text-indent:-21.0pt;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:42.0pt;
+	text-indent:-21.0pt;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:63.0pt;
+	text-indent:-21.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:84.0pt;
+	text-indent:-21.0pt;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%5\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:105.0pt;
+	text-indent:-21.0pt;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:126.0pt;
+	text-indent:-21.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:147.0pt;
+	text-indent:-21.0pt;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%8\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:168.0pt;
+	text-indent:-21.0pt;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:189.0pt;
+	text-indent:-21.0pt;}
+@list l1
+	{mso-list-id:1983928052;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1372591848 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:21.0pt;
+	text-indent:-21.0pt;}
+@list l1:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:42.0pt;
+	text-indent:-21.0pt;}
+@list l1:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:63.0pt;
+	text-indent:-21.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:84.0pt;
+	text-indent:-21.0pt;}
+@list l1:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%5\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:105.0pt;
+	text-indent:-21.0pt;}
+@list l1:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:126.0pt;
+	text-indent:-21.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:147.0pt;
+	text-indent:-21.0pt;}
+@list l1:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%8\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:168.0pt;
+	text-indent:-21.0pt;}
+@list l1:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:189.0pt;
+	text-indent:-21.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:普通表格;
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:DengXian;
+	mso-ascii-font-family:DengXian;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:DengXian;
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:DengXian;
+	mso-hansi-theme-font:minor-latin;
+	mso-font-kerning:1.0pt;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=ZH-CN link="#0563C1" vlink="#954F72" style='tab-interval:21.0pt;
+text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=left style='text-align:left'><span class=1><span
+style='font-size:22.0pt'>分布式系统<span lang=EN-US>HDFS</span>部署报告<span lang=EN-US><o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span class=MsoBookTitle><span
+lang=EN-US style='font-style:normal;mso-bidi-font-style:italic'>16302010002 </span></span><span
+class=MsoBookTitle><span style='font-style:normal;mso-bidi-font-style:italic'>李云帆<span
+lang=EN-US><o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span class=1><span
+style='font-size:12.0pt;font-family:"Songti SC"'>部署环境：阿里云，<span lang=EN-US>Ubuntu16.04
+</span>事先已经安装过<span lang=EN-US>JDK</span>并配置过公钥登陆<span lang=EN-US><o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span class=1><span
+style='font-size:12.0pt;font-family:"Songti SC"'>（由于以前已经部署好了，所以现在是依靠回忆来回放一个部署过程，当时部署时参照了</span></span><span
+class=MsoHyperlink><span lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'><a
+href="http://flowsnow.net/2018/04/16/Hadoop3-basic-installation-and-configuration/"><span
+lang=EN-US><span lang=EN-US>一篇博客</span></span></a></span></span><span class=1><span
+style='font-size:12.0pt;font-family:"Songti SC"'>，助教检查的时候可以看我的网站</span></span><span
+class=MsoHyperlink><span lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'><a href="http://985lovestory.online:9870/">http://985lovestory.online:9870/</a></span></span><span
+class=1><span style='font-size:12.0pt;font-family:"Songti SC"'>）</span></span><span
+lang=EN-US style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="图片_x0020_1" o:spid="_x0000_i1027" type="#_x0000_t75"
+ style='width:6in;height:437pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="分布式系统HDFS部署报告.fld/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=432 height=437
+src="分布式系统HDFS部署报告.fld/image001.png" v:shapes="图片_x0020_1"><![endif]></span><span
+class=1><span lang=EN-US style='font-size:22.0pt'><o:p></o:p></span></span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:-21.0pt;mso-char-indent-count:0;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+class=1><span lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";
+mso-bidi-font-family:"Songti SC"'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span><![endif]><span
+class=1><span style='font-size:12.0pt;font-family:"Songti SC"'>第一步，登上阿里云服务器。<span
+lang=EN-US><o:p></o:p></span></span></span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:-21.0pt;mso-char-indent-count:0;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+class=1><span lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";
+mso-bidi-font-family:"Songti SC"'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span><![endif]><span
+class=1><span style='font-size:12.0pt;font-family:"Songti SC"'>按照网上教程设置公钥（免密）登陆，<span
+lang=EN-US><o:p></o:p></span></span></span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:-21.0pt;mso-char-indent-count:0;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+class=1><span lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";
+mso-bidi-font-family:"Songti SC"'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span><![endif]><span
+class=1><span style='font-size:12.0pt;font-family:"Songti SC"'>安装<span
+lang=EN-US>JDK</span>，<span lang=EN-US><o:p></o:p></span></span></span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:-21.0pt;mso-char-indent-count:0;mso-pagination:widow-orphan;
+mso-list:l0 level1 lfo1'><![if !supportLists]><b><span lang=EN-US
+style='font-size:12.0pt;font-family:"Songti SC";mso-bidi-font-family:"Songti SC";
+mso-font-kerning:22.0pt'><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>下载安装<span
+lang=EN-US> Hadoop 3</span>（<span class=MsoHyperlink><span lang=EN-US><a
+href="http://www.apache.org/dyn/closer.cgi/hadoop/common/"><span lang=EN-US><span
+lang=EN-US>网址</span></span></a></span></span><span lang=EN-US> </span>，一般选择下载最新的稳定版本，将下载的<span
+lang=EN-US>tar.gz</span>保存到<span lang=EN-US>root</span>目录下，使用命令<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+mso-pagination:widow-orphan'><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;color:#66D9EF;background:#272822;
+mso-font-kerning:0pt'>sudo tar </span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;color:white;background:#272822;
+mso-font-kerning:0pt'>-zxf PATH/TO/hadoop*.tar.gz -C /usr/local<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+mso-pagination:widow-orphan'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>将其解压到自定义的文件夹下，我是放在<span lang=EN-US>/opt/software/hadoop</span>下<span
+lang=EN-US>&nbsp;</span>），<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:-21.0pt;mso-char-indent-count:0;mso-list:l0 level1 lfo1'><![if !supportLists]><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-bidi-font-family:
+"Songti SC";mso-font-kerning:22.0pt'><span style='mso-list:Ignore'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'>Hadoop </span></b><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>解压后即可使用。输入<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+mso-char-indent-count:1.75'><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;color:#66D9EF;background:#272822;
+mso-font-kerning:0pt'>cd </span><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;color:white;background:#272822;
+mso-font-kerning:0pt'>PATH/TO/hadoop</span><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;color:#66D9EF;
+background:#272822;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:0cm;mso-char-indent-count:0'><span lang=EN-US style='font-size:
+12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;color:#66D9EF;
+background:#272822;mso-font-kerning:0pt'>./bin/hadoop version<o:p></o:p></span></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:0cm;mso-char-indent-count:0'><b><span style='font-size:12.0pt;
+font-family:"Songti SC";mso-font-kerning:22.0pt'>命令来检查<span lang=EN-US> Hadoop </span>是否可用，成功则会显示<span
+lang=EN-US> Hadoop </span>版本信息：<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:-21.0pt;mso-char-indent-count:0;mso-list:l0 level1 lfo1'><![if !supportLists]><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-bidi-font-family:
+"Songti SC";mso-font-kerning:22.0pt'><span style='mso-list:Ignore'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'>Hadoop</span></b><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>伪分布式配置<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoListParagraph align=left style='margin-left:21.0pt;text-align:left;
+text-indent:0cm;mso-char-indent-count:0;mso-pagination:widow-orphan'><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>伪分布式模式只需要改两个配置文件并且格式化<span
+lang=EN-US>namenode</span>即可<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>编辑文件<span lang=EN-US>etc/hadoop/core-site.xml</span>：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'>&lt;configuration&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;property&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;name&gt;fs.defaultFS&lt;/name&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;value&gt;hdfs://localhost:9000&lt;/value&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;/property&gt;<br>
+&lt;/configuration&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>编辑文件<span lang=EN-US>etc/hadoop/hdfs-site.xml</span>：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'>&lt;configuration&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'><span style='mso-spacerun:yes'>   
+</span>&lt;property&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;value&gt;file:/usr/local/src/hadoop-3/tmp&lt;/value&gt;<br>
+<span style='mso-spacerun:yes'>        </span>&lt;description&gt;Abase for
+other temporary directories.&lt;/description&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;/property&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;property&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;name&gt;dfs.replication&lt;/name&gt;<br>
+<span style='mso-spacerun:yes'>        </span>&lt;value&gt;1&lt;/value&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;/property&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;property&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;value&gt;file:/usr/local/src/hadoop-3/tmp/dfs/name&lt;/value&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;/property&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;property&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;<br>
+<span style='mso-spacerun:yes'>       
+</span>&lt;value&gt;file:/usr/local/src/hadoop-3/tmp/dfs/data&lt;/value&gt;<br>
+<span style='mso-spacerun:yes'>    </span>&lt;/property&gt;<br>
+&lt;/configuration&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'>Hadoop</span></b><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>配置文件说明：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'>Hadoop </span></b><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>的运行方式是由<a
+style='mso-comment-reference:LY_1;mso-comment-date:20190309T1949'>配置文件</a></span></b><span
+class=MsoCommentReference><span lang=EN-US><![if !supportAnnotations]><a
+class=msocomanchor id="_anchor_1"
+onmouseover="msoCommentShow('_anchor_1','_com_1')"
+onmouseout="msoCommentHide('_com_1')" href="#_msocom_1" language=JavaScript
+name="_msoanchor_1">[LY1]</a><![endif]><span style='mso-special-character:comment'>&nbsp;</span></span></span><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>决定的（运行<span
+lang=EN-US> Hadoop </span>时会读取配置文件）<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>配置完成后，执行<span lang=EN-US> namenode </span>的格式化：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><span lang=EN-US style='font-size:12.0pt;font-family:
+Consolas;mso-fareast-font-family:宋体;color:white;background:#272822;mso-font-kerning:
+0pt'>hdfs namenode -format<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>然后使用<span lang=EN-US>start-dfs.sh</span>命令启动<span
+lang=EN-US>NameNode daemon</span>进程和<span lang=EN-US>DataNode daemon</span>进程：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>在启动前需要修改<span lang=EN-US>etc/hadoop/hadoop-env.sh</span>文件中的<span
+lang=EN-US>JAVA_HOME</span>变量为实际的即可<span lang=EN-US>.<o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>启动完成后，可以通过命令<span lang=EN-US>&nbsp;jps&nbsp;</span>来判断是否成功启动，若<a
+style='mso-comment-reference:LY_2;mso-comment-date:20190309T1955'>成功</a></span></b><span
+class=MsoCommentReference><span lang=EN-US><![if !supportAnnotations]><a
+class=msocomanchor id="_anchor_2"
+onmouseover="msoCommentShow('_anchor_2','_com_2')"
+onmouseout="msoCommentHide('_com_2')" href="#_msocom_2" language=JavaScript
+name="_msoanchor_2">[LY2]</a><![endif]><span style='mso-special-character:comment'>&nbsp;</span></span></span><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>启动则会列出如下进程<span
+lang=EN-US>: </span>“<span lang=EN-US>NameNode</span>”、”<span lang=EN-US>DataNode</span>”
+和 “<span lang=EN-US>SecondaryNameNode</span>”<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>要使用<span lang=EN-US> HDFS</span>，首先需要在<span
+lang=EN-US> HDFS </span>中创建用户目录<span lang=EN-US>(</span>我的用户就是<span lang=EN-US>root)</span>：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;color:white;background:#272822;mso-font-kerning:0pt'>hdfs dfs -mkdir -p
+/user/root<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>接着将<span lang=EN-US>&nbsp;etc/hadoop&nbsp;</span>中的<span
+lang=EN-US> xml </span>文件作为输入文件复制到分布式文件系统中，即将<span lang=EN-US>&nbsp;/opt/software/root/etc/hadoop&nbsp;</span>目录下的<span
+lang=EN-US>xml</span>文件复制到分布式文件系统中的<span lang=EN-US> /user/root/input </span>中。我们使用的是
+<span lang=EN-US>root</span>用户，并且已创建相应的用户目录<span lang=EN-US> /user/root</span>，因此在命令中就可以使用相对路径如<span
+lang=EN-US> input</span>，其对应的绝对路径就是 <span lang=EN-US>/user/root/input</span>：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=341
+ style='width:255.45pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=341 style='width:255.45pt;background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>hdfs dfs -mkdir input<br>
+  hdfs dfs -put ./etc/hadoop/*.xml input<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>复制完成后，可以通过如下命令查看文件列表：<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=407
+ style='width:305.05pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=407 style='width:305.05pt;background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>hdfs dfs -ls input<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>伪分布式运行<span lang=EN-US> MapReduce </span>作业的方式跟单机模式相同，区别在于伪分布式读取的是<span
+lang=EN-US>HDFS</span>中的文件（可以将单机步骤中创建的本地<span lang=EN-US> input </span>文件夹，输出结果<span
+lang=EN-US> output </span>文件夹都删掉来验证这一点）。<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="图片_x0020_2" o:spid="_x0000_i1026"
+ type="#_x0000_t75" style='width:6in;height:398pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="分布式系统HDFS部署报告.fld/image002.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=432 height=398
+src="分布式系统HDFS部署报告.fld/image002.png" v:shapes="图片_x0020_2"><![endif]></span></b><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'><o:p></o:p></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=568
+ style='width:426.35pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>hadoop jar
+  share/hadoop/mapreduce/hadoop-mapreduce-examples-3.x.jar grep input output
+  'dfs[a-z.]+'</span><b><span lang=EN-US style='font-size:12.0pt;font-family:
+  "Songti SC";mso-font-kerning:22.0pt'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>查看运行结果的命令（查看的是位于<span lang=EN-US> HDFS </span>中的输出结果）：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=246
+ style='width:184.55pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=246 style='width:184.55pt;background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>hdfs dfs -cat output/*<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>结果如下，注意到刚才我们已经更改了配置文件，所以运行结果不同。</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:
+宋体;color:white;background:#272822;mso-font-kerning:0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt;
+mso-ansi-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="图片_x0020_3"
+ o:spid="_x0000_i1025" type="#_x0000_t75" style='width:6in;height:196pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="分布式系统HDFS部署报告.fld/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=432 height=196
+src="分布式系统HDFS部署报告.fld/image003.png" v:shapes="图片_x0020_3"><![endif]></span></b><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>也可以将运行结果取回到本地：<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=568
+ style='width:426.35pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>./bin/hdfs dfs -get
+  output ./output<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>cat ./output/*</span><b><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+  22.0pt'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span lang=EN-US style='font-size:12.0pt;font-family:
+"Songti SC";mso-font-kerning:22.0pt'>Hadoop </span></b><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>运行程序时，输出目录不能存在，否则会提示错误<span
+lang=EN-US>org.apache.hadoop.mapred.FileAlreadyExistsException: Output
+directory hdfs://localhost:9000/user/root/output already exists</span>，因此若要再次执行，需要执行如下命令删除<span
+lang=EN-US> output </span>文件夹：<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=397
+ style='width:297.95pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=397 style='width:297.95pt;background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>hdfs dfs -rm -r output<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left'><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>若要关闭<span lang=EN-US> Hadoop</span>，则运行<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=397
+ style='width:297.95pt;margin-left:21.0pt;border-collapse:collapse;mso-yfti-tbllook:
+ 1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=397 style='width:297.95pt;background:#F9F9F9;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal align=left style='text-align:left'><span lang=EN-US
+  style='font-size:12.0pt;font-family:Consolas;mso-fareast-font-family:宋体;
+  color:white;background:#272822;mso-font-kerning:0pt'>stop-dfs.sh<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>下次启动<span
+lang=EN-US> hadoop </span>时，无需进行 <span lang=EN-US>NameNode </span>的初始化，只需要运行<span
+lang=EN-US>&nbsp;</span></span></b><span lang=EN-US style='font-size:12.0pt;
+font-family:Consolas;mso-fareast-font-family:宋体;color:white;background:#272822;
+mso-font-kerning:0pt'>start-dfs.sh&nbsp;</span><b><span style='font-size:12.0pt;
+font-family:"Songti SC";mso-font-kerning:22.0pt'>就可以！<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<b><span lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-bidi-font-family:
+"Times New Roman";mso-bidi-theme-font:minor-bidi;mso-font-kerning:22.0pt;
+mso-ansi-language:EN-US;mso-fareast-language:ZH-CN;mso-bidi-language:AR-SA'><br
+clear=all style='page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal align=center style='text-align:center;mso-pagination:widow-orphan'><span
+class=1><span style='font-size:22.0pt;mso-bidi-font-weight:normal'>对比<span
+lang=EN-US>HDFS</span>与<span lang=EN-US>NFS</span></span></span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt;mso-bidi-font-weight:bold'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'>NFS</span></b><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>（网络文件系统）：开发的一种基于协议，允许客户端通过网络访问文件的文件系统。<span
+lang=EN-US> NFS</span>客户端允许用户访问文件，就像文件驻留在用户的本地设备上一样，实际它们存储在联网计算机的磁盘上。<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'>HDFS</span></b><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>（<span lang=EN-US>Hadoop</span>分布式文件系统）：分布在许多联网计算机或节点中的文件系统。<span
+lang=EN-US> HDFS</span>具有容错能力，因为它在文件系统上存储了多个文件副本。<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>最大的区别是
+复本（容错性）。<span lang=EN-US> HDFS</span>旨在应对失败。 <span lang=EN-US>NFS</span>没有内置任何容错功能。<span
+lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:
+22.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>除容错外，由于<span
+lang=EN-US>HDFS</span>支持多个文件副本。 这可以消除（或简化）许多客户端访问单个文件的常见瓶颈。 同时由于文件具有多个副本，因此在不同的物理磁盘上，读取性能比<span
+lang=EN-US>NFS</span>更好。<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+</div>
+
+<div style='mso-element:comment-list'><![if !supportAnnotations]>
+
+<hr class=msocomoff align=left size=1 width="33%">
+
+<![endif]>
+
+<div style='mso-element:comment'><![if !supportAnnotations]>
+
+<div id="_com_1" class=msocomtxt language=JavaScript
+onmouseover="msoCommentShow('_anchor_1','_com_1')"
+onmouseout="msoCommentHide('_com_1')"><![endif]><span style='mso-comment-author:
+"Li Yunfan";mso-comment-providerid:"Windows Live";mso-comment-userid:0ca6eeb403d6b42d'><![if !supportAnnotations]><a
+name="_msocom_1"></a><![endif]></span>
+
+<p class=MsoCommentText><span class=MsoCommentReference><span lang=EN-US><span
+style='mso-special-character:comment'>&nbsp;<![if !supportAnnotations]><a
+href="#_msoanchor_1" class=msocomoff>[LY1]</a><![endif]></span></span></span><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>此外，伪分布式虽然只需要配置<span
+lang=EN-US> fs.defaultFS </span>和<span lang=EN-US> dfs.replication </span>就可以运行（官方教程如此），不过若没有配置<span
+lang=EN-US> hadoop.tmp.dir </span>参数，则默认使用的临时目录为 <span lang=EN-US>/tmp/hadoo-hadoop</span>，而这个目录在重启时有可能被系统清理掉，导致必须重新执行<span
+lang=EN-US> format </span>才行<span lang=EN-US>. </span>所以我们进行了设置，同时也指定<span
+lang=EN-US> dfs.namenode.name.dir </span>和<span lang=EN-US>
+dfs.datanode.data.dir</span>，否则在接下来的步骤中可能会出错。</span></b></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+<div style='mso-element:comment'><![if !supportAnnotations]>
+
+<div id="_com_2" class=msocomtxt language=JavaScript
+onmouseover="msoCommentShow('_anchor_2','_com_2')"
+onmouseout="msoCommentHide('_com_2')"><![endif]><span style='mso-comment-author:
+"Li Yunfan";mso-comment-providerid:"Windows Live";mso-comment-userid:0ca6eeb403d6b42d'><![if !supportAnnotations]><a
+name="_msocom_2"></a><![endif]></span>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+class=MsoCommentReference><span lang=EN-US><span style='mso-special-character:
+comment'>&nbsp;<![if !supportAnnotations]><a href="#_msoanchor_2"
+class=msocomoff>[LY2]</a><![endif]></span></span></span><b><span
+style='font-size:12.0pt;font-family:"Songti SC";mso-font-kerning:22.0pt'>如果<span
+lang=EN-US> SecondaryNameNode </span>没有启动，请运行<span lang=EN-US> sbin/stop-dfs.sh
+</span>关闭进程，然后再次尝试启动尝试）。如果没有<span lang=EN-US> NameNode </span>或<span
+lang=EN-US> DataNode </span>，那就是配置不成功，请仔细检查之前步骤，或通过查看启动日志排查原因。<span lang=EN-US><o:p></o:p></span></span></b></p>
+
+<p class=MsoCommentText><b><span style='font-size:12.0pt;font-family:"Songti SC";
+mso-font-kerning:22.0pt'>启动成功之后，浏览<span lang=EN-US>NameNode</span>的<span
+lang=EN-US>web</span>接口，<span lang=EN-US>Web</span>界面示例地址如下（<span lang=EN-US>hadoop2.x</span>端口默认为<span
+lang=EN-US>50070</span>，<span lang=EN-US>hadoop3.x</span>端口默认为<span lang=EN-US>9870</span></span></b></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+</div>
+
+</body>
+
+</html>
