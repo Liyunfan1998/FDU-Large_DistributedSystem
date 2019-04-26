@@ -3,8 +3,10 @@
 import sys
 import random
 import io
+
 reload(sys)
 sys.setdefaultencoding('utf8')
+
 
 def read_from_input(file):
     for line in file:
@@ -42,12 +44,12 @@ def main(f=None):
             words = lineArr
             date = words[0]
             time = words[1]
-            filesize = words[2]
+            filesize = words[2].strip()
             id = words[3][0:2]
-            subid = words[3][2:]
+            id_full = words[3]
             filename = words[4]
-            print('%s%s%s%s%s%s%s%s%s%s%s' %
-                  (id, '\t', 'D#', ' ', date, ' ', time, ' ', filesize, ' ', filename))
+            print('%s%s%s%s%s%s%s%s%s%s%s%s%s' %
+                  (id, '\t', 'D#', ' ', id_full, ' ', date, ' ', time, ' ', filesize, ' ', filename))
             # str_tmp = id + '\t' + 'D#' + ' ' + date + ' ' + time + ' ' + filesize + ' ' + filename
             # f.write(str_tmp)
     # f.close()

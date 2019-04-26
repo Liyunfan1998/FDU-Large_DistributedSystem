@@ -13,7 +13,6 @@ sys.setdefaultencoding('utf8')
 sys.path.append('/usr/local/lib/python2.7/site-packages')
 import happybase
 
-
 # def get_tables_name(host,port):
 #     conn = happybase.Connection(host=host,port=port,protocol='compact',transport='framed')
 #     return conn.tables()
@@ -32,7 +31,7 @@ connection = happybase.Connection(host='localhost', port=9090, transport='framed
 # }
 # connection.create_table('hw5_id', families)
 # sleep(3)
-table = connection.table('hw5_id')
+table = connection.table('hw5_fn')
 
 
 def read_from_mapper(file, separator, f=None):
@@ -90,12 +89,13 @@ def main(separator='\t', f=None):
                     while '' in d:
                         d.remove('')
                     for n in N:
-                        print(id, n.decode('gbk'), d[0], d[0][0:4], d[1], d[2], d[3])
+                        print(id, n.decode('gbk'), d[0], d[1], d[1][0:4], d[2], d[3], d[4])
                         # tmpstr = str(id + n + d[0] + d[0][0:4] + d[1] + d[2] + d[3] + '\n')
                         # f.write(tmpstr)
-                        table.put(id, {b'pjname:pj_name': n, b'date:date_full': d[0], b'time:time_full': d[1],
-                                       b'filename:filename_full': d[3], b'year:date_year': d[0][0:4],
-                                       b'filesize:filesize_num': d[2]})
+                        table.put(d[4],
+                                  {b'pjname:pj_name': n.decode('gbk'), b'date:date_full': d[1], b'time:time_full': d[2],
+                                   b'filename:filename_full': d[4], b'year:date_year': d[1][0:4],
+                                   b'filesize:filesize_num': d[3], b'id:id_full': d[0], b'id:id_pre': d[0][0:2]})
             else:
                 print(id, n, '', '', '', '', '')
                 # tmpstr = str(id + n + '' + '' + '' + '' + '' + '\n')
